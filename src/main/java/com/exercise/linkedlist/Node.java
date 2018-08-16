@@ -28,7 +28,7 @@ public class Node<E> {
 
     @Override
     public String toString() {
-        return "Node{" +
+        return "BinaryTree{" +
                 "data=" + data +
                 ", next=" + next +
                 '}';

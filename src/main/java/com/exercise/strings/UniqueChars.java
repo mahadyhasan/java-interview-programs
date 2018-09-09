@@ -1,28 +1,30 @@
 package com.exercise.strings;
 
+import java.util.HashSet;
+
 public class UniqueChars {
 
 
     public static void main(String[] args) {
-        boolean isunique = isUniqueChars("chars");
-        if (isunique) {
-            System.out.println("String has unique characters");
-        } else {
-            System.out.println("String does not have unique chars");
-        }
+        System.out.println("java2blog has all unique chars : " + hasAllUniqueChars("java2blog"));
+        System.out.println("Apple has all unique chars : " + hasAllUniqueChars("apple"));
+        System.out.println("index has all unique chars : " + hasAllUniqueChars("index"));
+        System.out.println("world has all unique chars : " + hasAllUniqueChars("world"));
     }
 
-    private static boolean isUniqueChars(String str) {
-        if (str.length() > 128) return false;
+    private static boolean hasAllUniqueChars(String word) {
+        HashSet alphaset = new HashSet<>();
+        for (int i = 0; i < word.length(); i++) {
+            char c = word.charAt(i);
 
-        boolean[] char_set = new boolean[128];
-        for (int i = 0; i < str.length(); i++) {
-            int val = str.charAt(i);
-            if (char_set[val]) { //already found this char in string
+            // If Hashset's add method return false,that means it is already present in HashSet
+            if (!alphaset.add(c)) {
                 return false;
             }
-            char_set[val] = true;
         }
+
         return true;
+
+
     }
 }

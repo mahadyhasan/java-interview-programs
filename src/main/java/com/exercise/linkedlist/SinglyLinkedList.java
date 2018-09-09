@@ -114,6 +114,21 @@ public class SinglyLinkedList<E> {
 
     }
 
+    public void reverse(SinglyLinkedList<E> stringSinglyLinkedList) {
+        System.out.println("\nReversing the LinkedList");
+        Node<E> prev = null;
+        Node<E> current = stringSinglyLinkedList.getHead();
+        Node<E> next = null;
+        while (current != null) {
+            next = current.getNext();
+            current.next = prev;
+            prev = current;
+            current = next;
+        }
+        head = prev;
+
+    }
+
     @Override
     public String toString() {
         return "\nhead --> " + head + "\ntail --> " + tail + "\nsize --> " + size;
@@ -125,6 +140,9 @@ public class SinglyLinkedList<E> {
         stringSinglyLinkedList.add("Mahady");
         stringSinglyLinkedList.add("Mumin");
         stringSinglyLinkedList.add("Shaheen");
+        System.out.println(stringSinglyLinkedList);
+        stringSinglyLinkedList.reverse(stringSinglyLinkedList);
+        System.out.println("After Reverse...");
         System.out.println(stringSinglyLinkedList);
         System.out.println();
         System.out.println("Testing Remove...");

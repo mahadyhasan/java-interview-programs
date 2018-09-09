@@ -26,9 +26,13 @@ public class Node<E> {
         this.next = next;
     }
 
+    public void displayNodeData() {
+        System.out.println("{ " + data + " } ");
+    }
+
     @Override
     public String toString() {
-        return "BinaryTree{" +
+        return "Node{" +
                 "data=" + data +
                 ", next=" + next +
                 '}';

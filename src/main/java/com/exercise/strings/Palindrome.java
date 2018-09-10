@@ -14,15 +14,15 @@ public class Palindrome {
 
     private static boolean isPalindrome(String word) {
         char[] s_array = word.toCharArray();
-        int i1 = 0;
-        int i2 = s_array.length - 1; //4
+        int left = 0;
+        int right = s_array.length - 1; //4
 
-        while (i2 > i1) {
-            if (s_array[i1] != s_array[i2]) {
+        while (right > left) {
+            if (s_array[left] != s_array[right]) {
                 return false;
             }
-            ++i1;
-            --i2;
+            ++left;
+            --right;
         }
 
         return true;

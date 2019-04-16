@@ -6,7 +6,7 @@ public class MyQueue<T> {
 
     private static class QueueNode<T> {
         private T data;
-        private QueueNode next;
+        private QueueNode<T> next;
 
         public QueueNode(T data) {
             this.data = data;

@@ -2,22 +2,22 @@ package com.exercise.singleton;
 
 public class SingletonExample {
 
-    private static SingletonExample singletonExample = new SingletonExample();
+    private static volatile SingletonExample INSTANCE = null;
+
 
     private SingletonExample() {
     }
 
     public static SingletonExample getInstance() {
-        return singletonExample;
-    }
+        if (INSTANCE == null) {
+            synchronized (SingletonExample.class) {
+                if (INSTANCE == null) { //for keeping the operation atomic
+                    INSTANCE = new SingletonExample();
+                }
+            }
+        }
 
-    public void testMe() {
-        System.out.println("It is working");
-    }
-
-    public static void main(String[] args) {
-        SingletonExample singletonExample = getInstance();
-        singletonExample.testMe();
+        return INSTANCE;
     }
 
 }
